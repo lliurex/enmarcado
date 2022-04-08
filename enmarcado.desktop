@@ -1,0 +1,93 @@
+[Desktop Entry]
+Type=Service
+MimeType=image/png;image/jpeg;image/gif;
+X-KDE-Submenu=Marcos
+X-KDE-Submenu[ca]=Marcs
+X-KDE-MinNumbersOfUrls=1
+X-KDE-MaxNumbersOfUrls=3
+X-KDE-ServiceTypes=KonqPopupMenu/Plugin
+Actions=h_md;h_ms;h_mn;h_pf;h_msp;h_mpf;_SEPARATOR_;v_md;v_ms;v_mn;v_pf;v_msp;v_mpf;
+
+[Desktop Action h_md]
+Name=Horizontal » Doble
+Name[es]=Horizontal » Doble
+Name[ca]=Horizontal » Doble
+Icon=package-available
+Exec=/usr/bin/enmarcado -m horizontal -t doble %U;
+
+[Desktop Action h_ms]
+Name=Horizontal » Simple
+Name[es]=Horizontal » Simple
+Name[ca]=Horizontal » Simple
+Icon=package-available
+Exec=/usr/bin/enmarcado -m horizontal -t simple %U;
+
+[Desktop Action h_mn]
+Name=Horizontal » Normal
+Name[es]=Horizontal » Normal
+Name[ca]=Horizontal » Normal
+Icon=package-available
+Exec=/usr/bin/enmarcado -m horizontal -t normal %U;
+
+[Desktop Action h_pf]
+Name=Horizontal » Fondo y líneas
+Name[es]=Horizontal » Fondo y líneas
+Name[ca]=Horizontal » Fons i línies
+Icon=package-available
+Exec=/usr/bin/enmarcado -m horizontal -t fondo_lineas %U;
+
+[Desktop Action h_msp]
+Name=Horizontal » Marco titular y líneas
+Name[es]=Horizontal » Marco titular y líneas
+Name[ca]=Horizontal » Marc titular i línies
+Icon=package-available
+Exec=/usr/bin/enmarcado -m horizontal -t titular_lineas %U;
+
+[Desktop Action h_mpf]
+Name=Horizontal » Marco fondo y líneas
+Name[es]=Horizontal » Marco fondo y líneas
+Name[ca]=Horizontal » Marc fons i línies
+Icon=package-available
+Exec=/usr/bin/enmarcado -m horizontal -t marco_fondo_lineas %U;
+
+[Desktop Action v_md]
+Name=Vertical » Doble
+Name[es]=Vertical » Doble
+Name[ca]=Vertical » Doble
+Icon=package-available
+Exec=/usr/bin/enmarcado -m vertical -t doble %U;
+
+[Desktop Action v_ms]
+Name=Vertical » Simple
+Name[es]=Vertical » Simple
+Name[ca]=Vertical » Simple
+Icon=package-available
+Exec=/usr/bin/enmarcado -m vertical -t simple %U;
+
+[Desktop Action v_mn]
+Name=Vertical » Normal
+Name[es]=Vertical » Normal
+Name[ca]=Vertical » Normal
+Icon=package-available
+Exec=/usr/bin/enmarcado -m vertical -t normal %U;
+
+[Desktop Action v_pf]
+Name=Vertical » Fondo y líneas
+Name[es]=Vertical » Fondo y líneas
+Name[ca]=Vertical » Fons i línias
+Icon=package-available
+Exec=/usr/bin/enmarcado -m vertical -t fondo_lineas %U;
+
+[Desktop Action v_msp]
+Name=Vertical » Marco titular y líneas
+Name[es]=Vertical » Marco titular y líneas
+Name[ca]=Vertical » Marc titular i línies
+Icon=package-available
+Exec=/usr/bin/enmarcado -m vertical -t titular_lineas %U;
+
+[Desktop Action v_mpf]
+Name=Vertical » Marco fondo y líneas
+Name[es]=Vertical » Marco fondo y líneas
+Name[ca]=Vertical » Marc fons i línies
+Icon=package-available
+Exec=/usr/bin/enmarcado -m vertical -t marco_fondo_lineas %U;
