@@ -1,3 +1,10 @@
+enmarcado (0.2.2) focal; urgency=medium
+
+  * Add translation system
+  * Change default savepath
+
+ -- M.Angel Juan <m.angel.juan@gmail.com>  Fri, 20 May 2022 13:13:44 +0200
+
 enmarcado (0.2.1) focal; urgency=medium
 
   * Fix policy
