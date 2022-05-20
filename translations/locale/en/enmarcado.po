@@ -1,0 +1,42 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-20 13:06+0200\n"
+"PO-Revision-Date: 2022-05-20 13:07+0200\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.3\n"
+
+#: enmarcado:51
+msgid "No mode selected"
+msgstr ""
+
+#: enmarcado:57
+msgid "No template selected"
+msgstr ""
+
+#: enmarcado:66
+msgid "{} not exists"
+msgstr ""
+
+#: enmarcado:116
+msgid "Wrong parameters"
+msgstr ""
+
+#: enmarcado:121
+msgid "Wrong mode or template"
+msgstr ""
+
+#: enmarcado:124
+msgid "Template {} not found!"
+msgstr ""
