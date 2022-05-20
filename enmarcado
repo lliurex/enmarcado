@@ -103,7 +103,7 @@ def ask(default_name):
 
 def ask_open(filename):
     try:
-        subprocess.check_call(['/usr/bin/kdialog','--yesno',f' Open {filename} ?','--title',os.path.basename(sys.argv[0])])
+        subprocess.check_call(['/usr/bin/kdialog','--yesno',_(' Open {} ?').format(filename),'--title',os.path.basename(sys.argv[0])])
         return True
     except:
         return False
