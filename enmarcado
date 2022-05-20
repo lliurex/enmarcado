@@ -5,6 +5,17 @@ import os
 import re
 import tempfile
 import shutil
+import locale
+import gettext
+
+try:
+    translation = gettext.translation('enmarcado',localedir='/usr/share/locale')
+    if translation:
+        translation.install()
+        _ = translation.gettext
+except FileNotFoundError:
+    print('No translation found!')
+    _ = lambda x: x
 
 RESOURCE_DIR='/usr/lib/enmarcado/resources/enmarcado'
 
@@ -37,13 +48,13 @@ def parse_parameters():
                     mode = sys.argv[narg+1]
                     narg += 1
                 else:
-                    raise Exception('No mode selected')
+                    raise Exception(_('No mode selected'))
             elif param == "-t":
                 if narg+1 < len(sys.argv):
                     template = sys.argv[narg+1]
                     narg += 1
                 else:
-                    raise Exception('No template selected')
+                    raise Exception(_('No template selected'))
             else:
                 if param == '-h':
                     help()
@@ -52,7 +63,7 @@ def parse_parameters():
                     if len(imgs) < 3:
                         imgs.append(param)
                 else:
-                    raise Exception(f'{param} not exists')
+                    raise Exception(_('{} not exists').format(param))
     except Exception as e:
         print(f'{e}')
         help(1)
@@ -84,11 +95,9 @@ def make_square(imgname):
 
 def ask(default_name):
     try:
-        if default_name:
-            default_name=os.path.basename(default_name)
-        else:
+        if not default_name:
             return None
-        return subprocess.check_output(['/usr/bin/kdialog','--getsavefilename',f'{os.path.expanduser("~")}/{default_name}','application/pdf']).decode().strip()
+        return subprocess.check_output(['/usr/bin/kdialog','--getsavefilename',default_name,'application/pdf']).decode().strip()
     except Exception as e:
         return None
 
@@ -104,15 +113,15 @@ def ask_open(filename):
 if __name__ == "__main__":
     parse_parameters()
     if not mode or not template or not imgs:
-        print('Wrong parameters')
+        print(_('Wrong parameters'))
         help(1)
     directory = f'{RESOURCE_DIR}/{mode}/{template}'
     template_name = f'p{len(imgs)}.svg'
     if not os.path.isdir(directory):
-        print('Wrong mode or template')
+        print(_('Wrong mode or template'))
         help(1)
     if not os.path.isfile(f'{directory}/{template_name}'):
-        print('Template {template_name} not found!')
+        print(_('Template {} not found!').format(template_name))
         help(1)
 
     out_pdf=''
@@ -137,7 +146,11 @@ if __name__ == "__main__":
         os.chdir(dirname)
         subprocess.check_call(['/usr/bin/rsvg-convert',file_template,'-f','png','-b','white','-o',file_png])
         subprocess.check_call(['/usr/bin/rsvg-convert',file_template,'-f','pdf','-b','white','-o',file_pdf])
-        output = ask(f'{mode}_{template}.pdf')
+        if imgs:
+            basename = os.path.dirname(os.path.realpath(imgs[0]))
+        else:
+            basename = os.path.expanduser('~')
+        output = ask(f'{basename}/{mode}_{template}.pdf')
         if output:
             out_png=f'{os.path.dirname(output)}/{os.path.basename(output).replace(".pdf",".png")}'
             out_pdf=f'{os.path.dirname(output)}/{os.path.basename(output).replace(".pdf",".pdf")}'
